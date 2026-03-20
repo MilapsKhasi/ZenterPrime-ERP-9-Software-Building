@@ -3,11 +3,174 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Google AI Studio App</title>
+    <title>ERP v26.3.1</title>
+    <link rel="stylesheet" href="/src/index.css">
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <div id="app" class="app-container">
+      <!-- Navbar -->
+      <nav class="navbar">
+        <div class="navbar-container">
+          <div class="navbar-left">
+            <div class="navbar-logo-section">
+              <div class="navbar-logo-box">
+                <span class="navbar-logo-text">Z</span>
+              </div>
+            </div>
+            
+            <div class="navbar-menu">
+              <div class="navbar-menu-item">
+                <button class="navbar-menu-button active">
+                  <span>Dashboard</span>
+                </button>
+              </div>
+              <div class="navbar-menu-item">
+                <button class="navbar-menu-button">
+                  <span>Sales</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div class="navbar-dropdown">
+                  <a href="#" class="navbar-dropdown-item">Sales Invoice</a>
+                  <a href="#" class="navbar-dropdown-item">Sales Return</a>
+                  <a href="#" class="navbar-dropdown-item">Delivery Challan</a>
+                  <a href="#" class="navbar-dropdown-item">Quotation</a>
+                </div>
+              </div>
+              <div class="navbar-menu-item">
+                <button class="navbar-menu-button">
+                  <span>Purchases</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div class="navbar-dropdown">
+                  <a href="#" class="navbar-dropdown-item">Purchase Invoice</a>
+                  <a href="#" class="navbar-dropdown-item">Purchase Return</a>
+                  <a href="#" class="navbar-dropdown-item">Purchase Order</a>
+                </div>
+              </div>
+              <div class="navbar-menu-item">
+                <button class="navbar-menu-button">
+                  <span>Parties</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div class="navbar-dropdown">
+                  <a href="#" class="navbar-dropdown-item">Customers</a>
+                  <a href="#" class="navbar-dropdown-item">Suppliers</a>
+                  <a href="#" class="navbar-dropdown-item">Party Groups</a>
+                </div>
+              </div>
+              <div class="navbar-menu-item">
+                <button class="navbar-menu-button">
+                  <span>Inventory</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div class="navbar-dropdown">
+                  <a href="#" class="navbar-dropdown-item">Stock Items</a>
+                  <a href="#" class="navbar-dropdown-item">Stock Groups</a>
+                  <a href="#" class="navbar-dropdown-item">Units of Measure</a>
+                </div>
+              </div>
+              <div class="navbar-menu-item">
+                <button class="navbar-menu-button">
+                  <span>Reports</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div class="navbar-dropdown">
+                  <a href="#" class="navbar-dropdown-item">Sales Report</a>
+                  <a href="#" class="navbar-dropdown-item">Purchase Report</a>
+                  <a href="#" class="navbar-dropdown-item">Stock Summary</a>
+                  <a href="#" class="navbar-dropdown-item">Profit & Loss</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="navbar-right">
+            <div class="navbar-date-box">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
+              <span id="current-date" class="navbar-date-text">20-Mar-2026</span>
+            </div>
+            <button class="navbar-icon-button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            </button>
+            <button class="navbar-icon-button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.1a2 2 0 0 1-1-1.72v-.51a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+            <div class="navbar-avatar">
+              AD
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <div class="content-stack">
+          <!-- Dashboard Cards -->
+          <div class="dashboard-grid" id="dashboard-cards">
+            <!-- Cards will be injected here -->
+          </div>
+
+          <!-- Quick Create Section -->
+          <div class="section-container">
+            <h2 class="section-title">Quick Create</h2>
+            <div class="quick-create-grid">
+              <button class="btn-primary">New Sales Entry</button>
+              <button class="btn-primary">New Purch Entry</button>
+              <button class="btn-primary">New Party Entry</button>
+              <button class="btn-primary">New Item Entry</button>
+              <button class="btn-primary">New DC Entry</button>
+              <button class="btn-primary">New Rec Entry</button>
+            </div>
+          </div>
+
+          <!-- Recent Transactions Section -->
+          <div class="section-container">
+            <h2 class="section-title">Recent Transactions</h2>
+            <div class="table-container">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Type</th>
+                    <th>Document</th>
+                    <th>Party Name</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody id="transactions-body">
+                  <tr>
+                    <td colspan="6" class="table-empty-state">
+                      No transactions found.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- Footer Bar -->
+      <footer class="footer">
+        <div class="footer-shortcuts">
+          <div class="footer-shortcut">F1: Help</div>
+          <div class="footer-shortcut">F2: Date</div>
+          <div class="footer-shortcut">F3: Search Invoice</div>
+          <div class="footer-shortcut">F4: Contra</div>
+          <div class="footer-shortcut">F5: Payment</div>
+          <div class="footer-shortcut">F6: Receipt</div>
+          <div class="footer-shortcut">F7: Journal</div>
+          <div class="footer-shortcut">F8: Sales</div>
+          <div class="footer-shortcut">F9: Purchase</div>
+          <div class="footer-shortcut">F10: Other Vouchers</div>
+        </div>
+        <div class="footer-version">
+          ERP <span class="version-number">v26.3.1</span>
+        </div>
+      </footer>
+    </div>
+    <script type="module" src="/src/main.js"></script>
   </body>
 </html>
 
